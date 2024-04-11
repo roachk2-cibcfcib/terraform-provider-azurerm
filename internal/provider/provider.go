@@ -482,14 +482,14 @@ func buildClient(ctx context.Context, p *schema.Provider, d *schema.ResourceData
 		defer cancel()
 
 		if err := resourceproviders.EnsureRegistered(ctx2, client.Resource.ResourceProvidersClient, subscriptionId, requiredResourceProviders); err != nil {
-			return nil, diag.Errorf(resourceProviderRegistrationErrorFmt, err)
+			return nil, diag.Errorf(ResourceProviderRegistrationErrorFmt, err)
 		}
 	}
 
 	return client, nil
 }
 
-const resourceProviderRegistrationErrorFmt = `Error ensuring Resource Providers are registered.
+const ResourceProviderRegistrationErrorFmt = `Error ensuring Resource Providers are registered.
 
 Terraform automatically attempts to register the Resource Providers it supports to
 ensure it's able to provision resources.
