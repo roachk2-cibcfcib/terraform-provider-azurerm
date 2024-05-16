@@ -13,6 +13,7 @@ import (
 )
 
 func IsManagedHSMURI(env environments.Environment, uri string) (bool, error, string, string) {
+	// TODO: remove this
 	url, err := url.Parse(uri)
 	if err != nil {
 		return false, fmt.Errorf("Error parsing %s as URI: %+v", uri, err), "", ""
