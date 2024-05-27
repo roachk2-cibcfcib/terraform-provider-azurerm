@@ -2306,6 +2306,7 @@ resource "azurerm_storage_account" "test" {
   account_tier             = "Premium"
   account_replication_type = "LRS"
   access_tier              = "Hot"
+  large_file_share_enabled = true # defaulted in the API when FileStorage & Premium
 
   tags = {
     environment = "production"
@@ -2334,6 +2335,7 @@ resource "azurerm_storage_account" "test" {
   account_tier             = "Premium"
   account_replication_type = "LRS"
   access_tier              = "Cool"
+  large_file_share_enabled = true # defaulted in the API when FileStorage & Premium
 
   tags = {
     environment = "production"
@@ -3410,7 +3412,7 @@ resource "azurerm_storage_account" "test" {
   location                 = azurerm_resource_group.test.location
   account_tier             = "Standard"
   account_replication_type = "LRS"
-  large_file_share_enabled = true
+  large_file_share_enabled = true # defaulted in the API when FileStorage & Premium
 
   tags = {
     environment = "production"
@@ -4656,6 +4658,8 @@ resource "azurerm_storage_account" "test" {
   account_tier             = "Premium"
   account_replication_type = "LRS"
   account_kind             = "FileStorage"
+  large_file_share_enabled = true # defaulted in the API when FileStorage & Premium
+
   identity {
     type = "UserAssigned"
     identity_ids = [
@@ -4775,6 +4779,7 @@ resource "azurerm_storage_account" "test" {
   account_tier             = "Premium"
   account_replication_type = "LRS"
   account_kind             = "FileStorage"
+  large_file_share_enabled = true # defaulted in the API when FileStorage & Premium
 
   share_properties {
     retention_policy {
